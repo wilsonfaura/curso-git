@@ -1,0 +1,107 @@
+*Git es un sistema o software de control de versiones creado por linus torvalds, por tanto es un software libre, Git sirve para facilitar el desarrollo y mantenimiento de las aplicaciones 
+que se desarrollan sea de forma individual o colaborativa guardando un registro de los cambios que van sufriendo los archivos a medida que se va programando y creando nuevas versiones.
+
+*Debemos descargar git en nuestro ordenador y luego por medio de comandos hacemos seguimento al repositorio:
+
+Comandos principales para configurar usuario, hacer commits.
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°° 
+clear: para limpiar la pantalla.
+git config --local user.email "wilsonfaura10@hotmail.com": de esta forma configuramos el correo de nuestro usuario para solo este proyecto de git.
+git config --local user.name "wilsonfaura": de esta forma configuramos el nombre de usuario para solo este proyecto de git.
+git config --global user.email "wilsonfaura10@hotmail.com": de esta forma configuramos el correo de nuestro usuario para todos los proyectos de git.
+git config --global user.name "wilsonfaura": de esta forma configuramos el nombre de usuario para todos los proyectos de git.
+git init: sirve para comenzar a hacer seguimiento del proyecto, solo se usa al comienzo, crea dos area el area de ensayo (staging area) y el repositorio local.
+git add (nombre del archivo con extension): adiciona el archivo a el area de ensayo (staging area).
+git add .: Para realizar la adicion de todos los archivos al area el area de ensayo (staging area).
+git rm --cached (nombre del archivo con extension): para quitar el archivo del area de ensayo (staging area).
+git commit -m "": lleva los archivos del area de ensayo (staging area) al area del repositorio local, entre comillas va la descripcion del commit.
+git commit -am "": Sirve para realizar con un solo comando la adicion al area de ensayo y el commit.
+git commit --amend: sirve para abrir el editor bind para modificar la desripcion.
+git status -s: revisar el estado de los archivos y carpetas del proyecto.
+git restore index.html: para revertir los cambios que todavia no estan en el staying area.
+git restore --staged index.html: para revertir los cambios cuando ya estan adicionados al staying area.
+git revert 20775e7e283f475dfe6c568599e04d8cdc2fba27: para revertir con el codigo del commit, cuando ya tiene commit.
+git stash: Guardando cambios para despues.
+git stash list: Para ver la lista de stash creados.
+git stash apply 0: para aplicar las modificaciones de este stash en particular.
+git stash pop: aplica las modificaciones del ultimo stash y ademas lo borra de la lista de stash.
+git log: para revisar los commits creados.
+git log --oneline: para revisar los commits creados resumiendo la informacion.
+git log --graph: para revisar los commits creados con las remas de manera grafica.
+git log -p: para ver los cambios de los archivos en los commits. :q :para salir de git log -p. -git log --pretty="parámetros de formato" ver en https://devhints.io/git-log.
+git log -n 2: Para ver los dos ultimos commits creados.
+git diff: para ver que cambios he realizado y ahun no he guardado en el staying area.
+git diff 657422c..4bc0351: Para ver los cambios entre un commit y otro.
+git reset --hard (codigo del commit): Sirve para restaurar un commit.
+rm -rf .git: sirve para eliminar un repositorio de git creado con 'git init'.
+
+
+Creacion repositorio remoto en Git
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+creacion repositorio remoto en git: creamos repositorio en la opcion crear repositorio, seleccionamos las opciones, damos un nombre.
+git remote add origin https://github.com/wilsonfaura/curso-css3.git: vinculacion del repositorio local a remoto con git remote add origin y la direccion.
+git branch -M main: creacion de la rama main.
+git push origin main | git push origin master: sincronización de repositorio local a remoto.
+git pull: sincronización de repositorio remoto a local.
+git pull origin master: sincronización de repositorio remoto a local con la rama master.
+git clone https://github.com/wilsonfaura/CursoGit.git: clonar proyecto de remoto a local, desde consola en local.
+
+
+Creacion de repositorio remoto en directorio local
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+cd ..: para volver una carpeta desde consola.
+mkdir servidor: crear carpeta desde consola con nombre servidor este nombre puede ser cualquiera.
+cd servidor/: Para avanzar en la carpeta creada.
+git init --bare: para iniciar el repositorio basico en la carpeta servidor. No contendrá una copia de nuestros archivos, servirá solo como servidor, para que otros miembros del equipo sincronicen sus trabajos 
+cd ..: para volver una carpeta desde consola.
+cd prueba/: Para avanzar en la carpeta anterior.
+git remote add servidorlocal "D:/Users/Wilson/Desktop/ONE/logica de programacion/8. git/servidor": Para crear repositorio en servidor local.
+git remote rm servidorlocal: Para eliminar el servidor local creado.
+git push servidorlocal master: para sincronizar de la carpeta prueba a servidor.
+git remote: para ver los nombres repositorios remotos.
+git remote -v: para ver los repositorios remotos con su ruta o direccionamiento.
+git clone '/d/Users/Wilson/Desktop/ONE/logica de programacion/8. git/servidor': clonacion repositorio de servidor local a local (servidor a servidorcopia).
+git remote rename origin servidorlocal: cambiar nombre por defecto que pone git por nombre de nuestro servidor local.
+git pull servidorlocal master: sincronizacion del servidor local a nuestra carpeta de copia.
+
+
+Ignorar archivos con gitignore, crear carpetas y desplazarse por consola
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+Para ignorar archivos creamos en la raiz del proyecto un archivo llamado .gitignore y dentro ponemos el nombre de la carpeta y los archivos a excluir del seguimiento.
+cd "d:/Users/Wilson/Desktop/ONE/logica de programacion/8. git": llegar a un directorio desde consola.
+cd ..: para volver una carpeta desde consola.
+mkdir servidor: crear carpeta desde consola con nombre servidor.
+cd servidor/: Para avanzar en la carpeta creada.
+
+
+Creacion de ramas
+°°°°°°°°°°°°°°°°°°
+git branch: para ver las ramas locales creadas.
+git branch titulo: crear rama desde consola en local con git branch y nombre a asignar.
+git checkout titulo: para mover o cambiar de rama git checkout y nombre de la rama.
+git checkout -b lista: para crear rama lista y movernos a esta con solo una linea.
+git branch -a: para ver las ramas locales y remotas.
+git checkout 20775e: para movernos a un commit determinado.
+
+
+Fusionar ramas a la rama master
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+git merge titulo: para fusionar las ramas nos movemos a master y usamos el comando git merge y nombre de la rama a fusionar.
+git rebase titulo: fusiona las ramas perdiendo el historial de los commit y el merge no pierde el historial de los commits.
+git branch -d titulo: para borrar una rama git branch -d nombre de la rama.
+Git fetch: lo que hace es obtener los metadatos del repositorio remoto u original y comprueba con tu repositorio local (sin descargar nada) y te muestra si en el repositorio original existen cambios, por decir algo seria comprobar cambios de una forma meramente informativa.
+git pull --all: es una combinación de dos comandos: git fetch y git merge. El comando git fetch descarga todos los cambios de todas las ramas remotas al repositorio local. El comando git merge combina los cambios descargados en la rama actual.
+
+
+Creacion de tags
+°°°°°°°°°°°°°°°°
+git tag 13-03-2021v1 -m "version 1 del proyecto": creacion de tags en local.
+git tag: para ver los tags creados.
+git push --tags: sincronizacion de todos los tags con remoto.
+git push servidorlocal 13-03-2021v1: sincronizacion con remoto tag.
+--------------------------------------------------------------------------------------------------------------
+
+HEAD: Estado actual de nuestro código, es decir, donde nos colocó Git
+Working tree: Lugar donde los archivos realmente están siendo almacenados
+index: Lugar donde Git almacena lo que será commiteado, es decir, la ubicación entre el working tree y el repositorio de Git en sí.
+
